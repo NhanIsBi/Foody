@@ -1,4 +1,4 @@
-package hcmute.nhom2.foody;
+package hcmute.nhom2.foody.Activity;
 
 import android.os.Bundle;
 
@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hcmute.nhom2.foody.Adapter.FoodAdapter;
+import hcmute.nhom2.foody.Food;
+import hcmute.nhom2.foody.R;
 
 
 public class FoodActivity extends AppCompatActivity {
@@ -20,10 +22,10 @@ public class FoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Bundle bundle=getIntent().getExtras();
-        if(bundle==null){
-            return;
-        }
+//        Bundle bundle=getIntent().getExtras();
+//        if(bundle==null){
+//            return;
+//        }
 //        Food food= (Food) bundle.get("object_Restaurant");
 //        TextView textname=findViewById(R.id.titleTxt1);
 //        textname.setText(food.getName());

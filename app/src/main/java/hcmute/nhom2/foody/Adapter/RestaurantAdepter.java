@@ -2,6 +2,9 @@ package hcmute.nhom2.foody.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,18 +16,29 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
-import hcmute.nhom2.foody.FoodActivity;
+import hcmute.nhom2.foody.Activity.FoodActivity;
 import hcmute.nhom2.foody.R;
 import hcmute.nhom2.foody.Restaurant;
 
 public class RestaurantAdepter extends RecyclerView.Adapter<RestaurantAdepter.RestaurantHolder>{
     private List<Restaurant> listRes;
+    private int layout;
     private Context mcontext;
-    public RestaurantAdepter(Context context,List<Restaurant> listRes) {
+    public RestaurantAdepter(Context context,int layout,List<Restaurant> listRes) {
         this.mcontext=context;
+        this.layout=layout;
         this.listRes = listRes;
+    }
+
+    public int getLayout() {
+        return layout;
+    }
+
+    public void setLayout(int layout) {
+        this.layout = layout;
     }
 
     @NonNull
@@ -40,8 +54,11 @@ public class RestaurantAdepter extends RecyclerView.Adapter<RestaurantAdepter.Re
         if(res==null){
             return;
         }
-        holder.imgRes.setImageResource(res.getImage());
         holder.nameRes.setText(res.getName());
+        //chuyển byte[] -> imageview
+        byte[] hinhanh=res.getImage();
+        Bitmap bitmap= BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
+        holder.imgRes.setImageBitmap(bitmap);
 
         holder.layoutItemRes.setOnClickListener(new View.OnClickListener() {
             @Override

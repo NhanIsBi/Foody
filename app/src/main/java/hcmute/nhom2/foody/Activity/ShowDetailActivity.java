@@ -1,20 +1,20 @@
-package hcmute.nhom2.foody;
+package hcmute.nhom2.foody.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import hcmute.nhom2.foody.FragmentCustom.CartFragment;
-import hcmute.nhom2.foody.FragmentCustom.HomeFragment;
+import hcmute.nhom2.foody.Food;
 import hcmute.nhom2.foody.R;
 
 public class ShowDetailActivity extends AppCompatActivity {
-    ImageView image1,image2;
+
+    Button btn1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,19 +32,13 @@ public class ShowDetailActivity extends AppCompatActivity {
         ImageView imgfood=findViewById(R.id.foodPic);
         imgfood.setImageResource(food.getImage());
 
-        image1 = findViewById(R.id.imageView5);
-        image1.setOnClickListener(new View.OnClickListener() {
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        btn1=findViewById(R.id.btnBack1);
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ShowDetailActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        image2 = findViewById(R.id.imageView7);
-        image2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ShowDetailActivity.this, MainActivity.class);
+                Intent intent = new Intent(ShowDetailActivity.this, FoodActivity.class);
                 startActivity(intent);
             }
         });

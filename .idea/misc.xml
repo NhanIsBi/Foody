@@ -35,15 +35,17 @@
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main/app/src/main/res/menu/menu_restaurant.xml" value="0.20416666666666666" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/drawable-v24/background_category.xml" value="0.1665" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/drawable-v24/background_white.xml" value="0.1665" />
+        <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/drawable-v24/bogoc.xml" value="0.1155" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/drawable-v24/card_background.xml" value="0.1415" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/drawable-v24/grey_bar.xml" value="0.1415" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/drawable-v24/grey_btn_background.xml" value="0.1415" />
+        <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/activity_add_restaurant.xml" value="0.25" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/activity_cart.xml" value="0.1492063492063492" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/activity_food.xml" value="0.20416666666666666" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/activity_login.xml" value="0.13697916666666668" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/activity_show_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/activity_show_detail.xml" value="0.25" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/fragment_account.xml" value="0.20416666666666666" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/item_food.xml" value="0.20416666666666666" />
@@ -51,6 +53,8 @@
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/viewholder_cart.xml" value="0.20416666666666666" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/viewholder_category.xml" value="0.20416666666666666" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/layout/viewholder_recommended.xml" value="0.13697916666666668" />
+        <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/menu/menu_bottom.xml" value="0.20416666666666666" />
+        <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-2-nhom2/app/src/main/res/menu/menu_restaurant.xml" value="0.20416666666666666" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-nhom2/app/src/main/res/layout/activity_cart.xml" value="0.21" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-nhom2/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Nam3hk2/GiuaKyFoody/Foody-main1-nhom2/app/src/main/res/layout/activity_login.xml" value="0.18" />

@@ -1,4 +1,4 @@
-package hcmute.nhom2.foody;
+package hcmute.nhom2.foody.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import hcmute.nhom2.foody.R;
 
 public class LoginActivity extends AppCompatActivity {
 

@@ -4,24 +4,29 @@ import java.io.Serializable;
 
 public class Restaurant implements Serializable {
 
-    public static final int TYPE_FOOD=1;
-    public static final int TYPE_DRINK=2;
-
-    private int image;
+    private int Id;
+    private byte[] image;
     private String name;
-    private  int type;
 
-    public Restaurant(int image, String name, int type) {
-        this.image = image;
+    public Restaurant(int id, String name, byte[] image) {
+        Id = id;
         this.name = name;
-        this.type = type;
+        this.image = image;
     }
 
-    public int getImage() {
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -31,13 +36,5 @@ public class Restaurant implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
     }
 }

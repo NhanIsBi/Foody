@@ -17,7 +17,7 @@ import java.util.List;
 
 import hcmute.nhom2.foody.Food;
 import hcmute.nhom2.foody.R;
-import hcmute.nhom2.foody.ShowDetailActivity;
+import hcmute.nhom2.foody.Activity.ShowDetailActivity;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodHolder>{
     private List<Food> listFood;

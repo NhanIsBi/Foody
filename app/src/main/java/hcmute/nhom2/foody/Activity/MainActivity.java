@@ -1,4 +1,4 @@
-package hcmute.nhom2.foody;
+package hcmute.nhom2.foody.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -11,6 +11,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import hcmute.nhom2.foody.FragmentCustom.AccountFragment;
 import hcmute.nhom2.foody.FragmentCustom.CartFragment;
 import hcmute.nhom2.foody.FragmentCustom.HomeFragment;
+import hcmute.nhom2.foody.R;
 
 public class MainActivity extends AppCompatActivity {
 
