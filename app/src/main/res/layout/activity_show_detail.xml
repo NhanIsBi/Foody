@@ -34,12 +34,12 @@
             <ImageView
                 android:id="@+id/foodPic"
                 android:layout_width="wrap_content"
-                android:layout_height="253dp"
+                android:layout_height="291dp"
                 android:layout_margin="24dp"
-                android:bottomRightRadius="20dp"
                 android:bottomLeftRadius="20dip"
-                android:topRightRadius="20dip"
+                android:bottomRightRadius="20dp"
                 android:topLeftRadius="20dip"
+                android:topRightRadius="20dip"
                 app:srcCompat="@drawable/burger_large" />
 
             <LinearLayout
@@ -70,7 +70,7 @@
                         android:id="@+id/constraintLayout3"
                         android:layout_width="140dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/yellow_bar"
+                        android:background="@android:color/holo_red_dark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
@@ -288,7 +288,7 @@
                         android:layout_height="65dp"
                         android:layout_margin="8dp"
                         android:layout_weight="0.5"
-                        android:background="@drawable/yellow_btn_background"
+                        android:background="@android:color/holo_red_dark"
                         android:drawableStart="@drawable/cart_white"
                         android:drawablePadding="5dp"
                         android:elevation="3dp"

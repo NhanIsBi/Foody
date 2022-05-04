@@ -1,10 +1,11 @@
-package hcmute.nhom2.foody;
+package hcmute.nhom2.foody.Model;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -27,7 +28,8 @@ public class Database extends SQLiteOpenHelper {
         statement.bindString(1,ten);
         statement.bindBlob(2,hinh);
 
-        statement.executeInsert();
+        int a = (int) statement.executeInsert();
+        Log.d("AAAAAAAA: ",String.valueOf(a));
     }
     public Cursor GetData(String sql){
         SQLiteDatabase database=getReadableDatabase();

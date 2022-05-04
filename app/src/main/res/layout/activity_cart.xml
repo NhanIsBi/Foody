@@ -6,7 +6,14 @@
     android:layout_height="match_parent"
     android:background="#ecebe6"
     tools:context=".FragmentCustom.CartFragment">
-
+    <Button
+        android:id="@+id/btnBack1"
+        android:layout_marginTop="5dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:background="@drawable/iconback"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="408dp"
@@ -179,7 +186,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="16dp"
-                android:background="@drawable/yellow_btn_background">
+                android:background="@android:color/holo_red_dark">
 
                 <TextView
                     android:id="@+id/textView16"

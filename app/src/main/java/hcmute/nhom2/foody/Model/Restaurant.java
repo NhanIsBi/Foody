@@ -1,4 +1,4 @@
-package hcmute.nhom2.foody;
+package hcmute.nhom2.foody.Model;
 
 import java.io.Serializable;
 

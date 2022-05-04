@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import hcmute.nhom2.foody.Food;
+import hcmute.nhom2.foody.Model.Food;
 import hcmute.nhom2.foody.R;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {

@@ -12,7 +12,8 @@ import java.util.List;
 import hcmute.nhom2.foody.Adapter.RestaurantAdepter;
 import hcmute.nhom2.foody.FragmentCustom.HomeFragment;
 import hcmute.nhom2.foody.R;
-import hcmute.nhom2.foody.Restaurant;
+import hcmute.nhom2.foody.Model.Restaurant;
+import hcmute.nhom2.foody.Static.StaticArg;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private List<Restaurant> getListRestaurant() {
         list=new ArrayList<>();
-        Cursor cursor = HomeFragment.database.GetData("SELECT * FROM QuanAn");
+        Cursor cursor = StaticArg.database.GetData("SELECT * FROM QuanAn");
         while (cursor.moveToNext()){
             list.add(new Restaurant(
                     cursor.getInt(0),

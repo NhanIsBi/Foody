@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +15,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 import hcmute.nhom2.foody.Activity.FoodActivity;
 import hcmute.nhom2.foody.R;
-import hcmute.nhom2.foody.Restaurant;
+import hcmute.nhom2.foody.Model.Restaurant;
 
 public class RestaurantAdepter extends RecyclerView.Adapter<RestaurantAdepter.RestaurantHolder>{
     private List<Restaurant> listRes;
@@ -77,11 +75,17 @@ public class RestaurantAdepter extends RecyclerView.Adapter<RestaurantAdepter.Re
         return 0;
     }
     private void onClickGoToDetail(Restaurant restaurant){
+        //try{
         Intent intent=new Intent(mcontext, FoodActivity.class);
         Bundle bundle=new Bundle();
         bundle.putSerializable("object_Restaurant", restaurant);
         intent.putExtras(bundle);
         mcontext.startActivity(intent);
+        //}
+        //catch (Exception e){
+         //   Log.d("EEEEEEEEEEE: ", e.toString());
+        //}
+
     }
     public class RestaurantHolder extends RecyclerView.ViewHolder{
         private RelativeLayout layoutItemRes;

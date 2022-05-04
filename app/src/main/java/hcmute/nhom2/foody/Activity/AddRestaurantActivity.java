@@ -28,6 +28,7 @@ import java.io.InputStream;
 
 import hcmute.nhom2.foody.FragmentCustom.HomeFragment;
 import hcmute.nhom2.foody.R;
+import hcmute.nhom2.foody.Static.StaticArg;
 
 public class AddRestaurantActivity extends AppCompatActivity {
     Button btnAdd,btnCancel;
@@ -80,7 +81,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
                 bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArray);
                 byte[] hinhanh=byteArray.toByteArray();
 
-                HomeFragment.database.Insert_Res(
+                StaticArg.database.Insert_Res(
                         edtName.getText().toString().trim(),
                         hinhanh
                 );
