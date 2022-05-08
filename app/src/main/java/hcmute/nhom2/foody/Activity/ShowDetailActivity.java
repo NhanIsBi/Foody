@@ -89,7 +89,6 @@ public class ShowDetailActivity extends AppCompatActivity {
                     Cart cart = new Cart(0, StaticArg.user.getId(), food.getId(), Integer.parseInt(txtAmount.getText().toString().trim()),0);
                     StaticArg.listCart.add(cart);
                     Toast.makeText(ShowDetailActivity.this,"Đã thêm",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(ShowDetailActivity.this,MainActivity.class));
                 }
                 else{
                     Toast.makeText(ShowDetailActivity.this,"Bạn chưa đăng nhập",Toast.LENGTH_SHORT).show();

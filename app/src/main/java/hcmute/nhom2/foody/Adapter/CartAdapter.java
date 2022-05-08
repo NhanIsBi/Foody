@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
     private List<Cart> listCart;
     private Context mcontext;
     public CartAdapter(Context context,List<Cart> listCart) {
+        Log.d("AAAAAAAAA: ", listCart.size()+"");
         this.listCart = listCart;
         this.mcontext = context;
     }
@@ -42,7 +44,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
     public void onBindViewHolder(@NonNull CartHolder holder, int position) {
         Cart cart=listCart.get(position);
         if(cart==null){
-            Log.d("AAAA: ", "B");
             return;
         }
         Cursor cursor = StaticArg.database.GetData("SELECT * FROM Food WHERE Id='"+cart.getFoodId()+"'");
@@ -73,7 +74,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
     }
 
     public class CartHolder extends RecyclerView.ViewHolder{
-        private RelativeLayout layoutItemCart;
+        private ConstraintLayout layoutItemCart;
         private TextView name;
         private TextView price;
         private TextView amount;
@@ -81,7 +82,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
         private ImageView image;
         public CartHolder(@NonNull View itemView) {
             super(itemView);
-            layoutItemCart=itemView.findViewById(R.id.layout_item_cart);
+            layoutItemCart = itemView.findViewById(R.id.layout_item_cart);
             name=itemView.findViewById(R.id.titleFood);
             price=itemView.findViewById(R.id.feeEachItem);
             amount=itemView.findViewById(R.id.numberItemTxt);

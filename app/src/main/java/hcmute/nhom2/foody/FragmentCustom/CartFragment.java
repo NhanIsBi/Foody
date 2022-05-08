@@ -1,16 +1,25 @@
 package hcmute.nhom2.foody.FragmentCustom;
 
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import hcmute.nhom2.foody.Adapter.CartAdapter;
+import hcmute.nhom2.foody.Adapter.FoodAdapter;
+import hcmute.nhom2.foody.Model.Food;
 import hcmute.nhom2.foody.R;
+import hcmute.nhom2.foody.Static.StaticArg;
 
 
 public class CartFragment extends Fragment {
@@ -37,7 +46,13 @@ public class CartFragment extends Fragment {
         rcvCart = view.findViewById(R.id.rcvCart);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(),1);
         rcvCart.setLayoutManager(gridLayoutManager);
+        Log.d("AAAA: ", StaticArg.listCart.size()+"");
+        CartAdapter adapter=new CartAdapter(getActivity(), StaticArg.listCart);
+        rcvCart.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
         return view;
     }
+
+
 }
