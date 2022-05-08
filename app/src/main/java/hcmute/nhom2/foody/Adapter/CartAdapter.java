@@ -1,6 +1,10 @@
 package hcmute.nhom2.foody.Adapter;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +17,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import hcmute.nhom2.foody.Model.Cart;
 import hcmute.nhom2.foody.Model.Food;
+import hcmute.nhom2.foody.Model.Restaurant;
 import hcmute.nhom2.foody.R;
+import hcmute.nhom2.foody.Static.StaticArg;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
-    private List<Food> listFood;
-    public CartAdapter(@NonNull Context context) {
-        this.listFood = listFood;
+    private List<Cart> listCart;
+    private Context mcontext;
+    public CartAdapter(Context context,List<Cart> listCart) {
+        this.listCart = listCart;
+        this.mcontext = context;
     }
 
     @NonNull
@@ -31,13 +40,31 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CartHolder holder, int position) {
-//        Food food=listFood.get(position);
-//        if(food==null){
-//            return;
-//        }
-//        holder.imgfood.setImageResource(food.getImage());
-//        holder.namefood.setText(food.getName());
-//        holder.pricefood.setText(food.getPrice());
+        Cart cart=listCart.get(position);
+        if(cart==null){
+            Log.d("AAAA: ", "B");
+            return;
+        }
+        Cursor cursor = StaticArg.database.GetData("SELECT * FROM Food WHERE Id='"+cart.getFoodId()+"'");
+        try{
+            Food tmp =  new Food(
+                    cursor.getInt(0),
+                    cursor.getInt(1),
+                    cursor.getString(2),
+                    cursor.getInt(3),
+                    cursor.getBlob(4));
+            holder.name.setText(tmp.getName());
+            holder.price.setText(tmp.getPrice()+"");
+            holder.amount.setText(cart.getAmount()+"");
+            holder.total.setText(cart.getAmount()*tmp.getPrice()+"");
+
+            byte[] hinhanh=tmp.getImage();
+            Bitmap bitmap= BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
+            holder.image.setImageBitmap(bitmap);
+        }catch (Exception e){
+            Log.d("Error: ", e.toString());
+        }
+
     }
 
     @Override
@@ -46,16 +73,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
     }
 
     public class CartHolder extends RecyclerView.ViewHolder{
-        private RelativeLayout layoutItemFood;
-        private ImageView imgfood;
-        private TextView namefood;
-        private TextView pricefood;
+        private RelativeLayout layoutItemCart;
+        private TextView name;
+        private TextView price;
+        private TextView amount;
+        private TextView total;
+        private ImageView image;
         public CartHolder(@NonNull View itemView) {
             super(itemView);
-            layoutItemFood=itemView.findViewById(R.id.layout_item_food);
-            imgfood=itemView.findViewById(R.id.imgF1);
-            namefood=itemView.findViewById(R.id.textviewF1);
-            pricefood=itemView.findViewById(R.id.textviewF2);
+            layoutItemCart=itemView.findViewById(R.id.layout_item_cart);
+            name=itemView.findViewById(R.id.titleFood);
+            price=itemView.findViewById(R.id.feeEachItem);
+            amount=itemView.findViewById(R.id.numberItemTxt);
+            total=itemView.findViewById(R.id.totalEachItem);
+            image=itemView.findViewById(R.id.pic);
         }
     }
 }

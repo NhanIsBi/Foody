@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_item_cart"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -31,9 +32,9 @@
         android:textColor="#373b54"
         android:textSize="18sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/titleTxt"
+        app:layout_constraintBottom_toBottomOf="@+id/titleFood"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/titleTxt" />
+        app:layout_constraintTop_toTopOf="@+id/titleFood" />
 
     <ImageView
         android:id="@+id/pic"
@@ -46,7 +47,7 @@
         app:srcCompat="@drawable/pizza1" />
 
     <TextView
-        android:id="@+id/titleTxt"
+        android:id="@+id/titleFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -64,8 +65,8 @@
         android:layout_height="wrap_content"
         android:background="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/titleTxt"
-        app:layout_constraintTop_toBottomOf="@+id/titleTxt">
+        app:layout_constraintStart_toStartOf="@+id/titleFood"
+        app:layout_constraintTop_toBottomOf="@+id/titleFood">
 
         <ImageView
             android:id="@+id/plusCardBtn"

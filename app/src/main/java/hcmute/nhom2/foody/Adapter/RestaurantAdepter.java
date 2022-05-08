@@ -23,20 +23,10 @@ import hcmute.nhom2.foody.Model.Restaurant;
 
 public class RestaurantAdepter extends RecyclerView.Adapter<RestaurantAdepter.RestaurantHolder>{
     private List<Restaurant> listRes;
-    private int layout;
     private Context mcontext;
-    public RestaurantAdepter(Context context,int layout,List<Restaurant> listRes) {
+    public RestaurantAdepter(Context context,List<Restaurant> listRes) {
         this.mcontext=context;
-        this.layout=layout;
         this.listRes = listRes;
-    }
-
-    public int getLayout() {
-        return layout;
-    }
-
-    public void setLayout(int layout) {
-        this.layout = layout;
     }
 
     @NonNull
@@ -61,7 +51,6 @@ public class RestaurantAdepter extends RecyclerView.Adapter<RestaurantAdepter.Re
         holder.layoutItemRes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //clickItemRestaurant.onClickItemRestaurent(res);
                 onClickGoToDetail(res);
             }
         });
@@ -75,17 +64,11 @@ public class RestaurantAdepter extends RecyclerView.Adapter<RestaurantAdepter.Re
         return 0;
     }
     private void onClickGoToDetail(Restaurant restaurant){
-        //try{
         Intent intent=new Intent(mcontext, FoodActivity.class);
         Bundle bundle=new Bundle();
         bundle.putSerializable("object_Restaurant", restaurant);
         intent.putExtras(bundle);
         mcontext.startActivity(intent);
-        //}
-        //catch (Exception e){
-         //   Log.d("EEEEEEEEEEE: ", e.toString());
-        //}
-
     }
     public class RestaurantHolder extends RecyclerView.ViewHolder{
         private RelativeLayout layoutItemRes;

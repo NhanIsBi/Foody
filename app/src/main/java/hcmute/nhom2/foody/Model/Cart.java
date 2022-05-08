@@ -7,12 +7,14 @@ public class Cart implements Serializable {
     private int UserId;
     private int FoodId;
     private int Amount;
+    private int OrderId;
 
-    public Cart(int id, int userId, int foodId, int amount) {
+    public Cart(int id, int userId, int foodId, int amount, int OrderId) {
         Id = id;
         UserId = userId;
         FoodId = foodId;
         Amount = amount;
+        OrderId = OrderId;
     }
 
     public int getId() {
@@ -45,5 +47,13 @@ public class Cart implements Serializable {
 
     public void setAmount(int amount) {
         Amount = amount;
+    }
+
+    public int getOrderId() {
+        return OrderId;
+    }
+
+    public void setOrderId(int amount) {
+        OrderId = OrderId;
     }
 }

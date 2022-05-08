@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/ic_background"
-    android:layout_height="match_parent">
+    tools:context=".Activity.RegisterActivity">
     <Button
         android:id="@+id/btnBack1"
         android:layout_marginTop="5dp"
@@ -18,78 +19,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:text="@string/titleLogin"
+        android:text="Đăng ký"
         android:textColor="#546E7A"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/btnGG"
-        android:textSize="20sp"
-        android:id="@+id/btnGoogle"
-        app:backgroundTint="@null"
-        android:background="#c00"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textSignin" />
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/btnFB"
-        android:textSize="20sp"
-        android:id="@+id/btnFacebook"
-        app:backgroundTint="@null"
-        android:background="#4267B2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoogle" />
-
-    <TextView
-        android:id="@+id/textHoac"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:text="@string/textOr"
-        android:textAlignment="center"
-        android:textColor="#80D8FF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnFacebook" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editTextTK"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
-        android:hint="@string/hintEmail"
+        android:hint="Nhập tài khoản"
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
         android:textColorHint="#0D47A1"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textHoac"
+        app:layout_constraintTop_toBottomOf="@+id/textSignin"
         tools:ignore="Autofill" />
 
     <EditText
-        android:id="@+id/editTextPass"
+        android:id="@+id/editTextMK"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="16dp"
         android:autofillHints=""
         android:hint="@string/hintPass"
@@ -98,33 +59,39 @@
         android:textColorHint="#283593"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
-    <Button
-        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTK" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/btnDangNhap"
-        app:backgroundTint="@null"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:id="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@id/editTextPass"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints=""
+        android:hint="Tên của bạn"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="#283593"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
-        />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMK" />
 
     <Button
-        android:id="@+id/btnRegister1"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="80dp"
         android:background="@color/white"
         android:text="Đăng ký"
         android:textColor="@color/black"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,14 +3,25 @@ package hcmute.nhom2.foody.Model;
 import java.io.Serializable;
 
 public class Order implements Serializable {
+
+    private int ID;
     private int UserID;
     private Cart[] listCart;
     private  int status;
 
-    public Order(int userID, Cart[] listCart, int status) {
+    public Order(int ID,int userID, Cart[] listCart, int status) {
+        ID=ID;
         UserID = userID;
         this.listCart = listCart;
         this.status = status;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public int getUserID() {

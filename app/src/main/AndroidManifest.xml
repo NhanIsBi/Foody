@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody">
         <activity
+            android:name=".Activity.AddFoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.AddRestaurantActivity"
             android:exported="false" />
         <activity

@@ -2,6 +2,8 @@ package hcmute.nhom2.foody.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,9 +42,13 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodHolder>{
         if(food==null){
             return;
         }
-        holder.imgfood.setImageResource(food.getImage());
+
+        byte[] hinhanh=food.getImage();
+        Bitmap bitmap= BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
+        holder.imgfood.setImageBitmap(bitmap);
+
         holder.namefood.setText(food.getName());
-        holder.pricefood.setText(food.getPrice());
+        holder.pricefood.setText(String.valueOf(food.getPrice()));
 
         holder.layoutItemFood.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +69,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodHolder>{
     private void onClickGoToDetail(Food food){
         Intent intent=new Intent(mcontext, ShowDetailActivity.class);
         Bundle bundle=new Bundle();
-        bundle.putSerializable("object_Food", food);
+        bundle.putSerializable("object_Food",food);
         intent.putExtras(bundle);
         mcontext.startActivity(intent);
     }

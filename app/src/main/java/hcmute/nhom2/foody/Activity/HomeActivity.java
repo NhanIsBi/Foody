@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
         rcvRes.setLayoutManager(gridLayoutManager);
 
-        RestaurantAdepter adepter=new RestaurantAdepter(this,R.layout.activity_add_restaurant,getListRestaurant());
+        RestaurantAdepter adepter=new RestaurantAdepter(this,getListRestaurant());
         rcvRes.setAdapter(adepter);
         adepter.notifyDataSetChanged();
 

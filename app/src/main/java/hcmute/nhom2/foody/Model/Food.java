@@ -4,22 +4,18 @@ import java.io.Serializable;
 
 public class Food implements Serializable {
 
-    public static final int TYPE_FOOD=1;
-    public static final int TYPE_DRINK=2;
-
     private int Id;
-    private int image;
-    private String name;
-    private String price;
-    private  int type;
     private  int ResId;
+    private String name;
+    private int price;
+    private byte[] image;
 
-    public Food(int id, int image, String name, String price, int type, int resId) {
+
+    public Food(int id, int resId, String name, int price, byte[] image) {
         Id = id;
         this.image = image;
         this.name = name;
         this.price = price;
-        this.type = type;
         ResId = resId;
     }
 
@@ -42,11 +38,11 @@ public class Food implements Serializable {
         ResId = resId;
     }
 
-    public int getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -58,17 +54,10 @@ public class Food implements Serializable {
         this.name = name;
     }
 
-    public String getPrice() { return price; }
+    public int getPrice() { return price; }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
 }
