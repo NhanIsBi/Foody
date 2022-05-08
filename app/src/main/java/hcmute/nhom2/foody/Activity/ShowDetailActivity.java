@@ -1,5 +1,6 @@
 package hcmute.nhom2.foody.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 
 import hcmute.nhom2.foody.Model.Cart;
 import hcmute.nhom2.foody.Model.Food;
@@ -45,6 +47,8 @@ public class ShowDetailActivity extends AppCompatActivity {
         imgHinh= findViewById(R.id.foodPic);
         btn1=findViewById(R.id.btnBack1);
         addCart=findViewById(R.id.addToCartBtn);
+
+        total.setText("$"+food.getPrice());
         txtname.setText(food.getName());
         txtprice.setText(String.valueOf(food.getPrice()));
         byte[] hinhanh=food.getImage();
@@ -57,7 +61,7 @@ public class ShowDetailActivity extends AppCompatActivity {
                 int num = Integer.parseInt(txtAmount.getText().toString());
                 num++;
                 txtAmount.setText(num+"");
-                total.setText(num*food.getPrice()+"");
+                total.setText("$"+num*food.getPrice()+"");
             }
         });
 
@@ -69,7 +73,7 @@ public class ShowDetailActivity extends AppCompatActivity {
                 if(num<1)
                     num=1;
                 txtAmount.setText(num+"");
-                total.setText(num*food.getPrice()+"");
+                total.setText("$"+num*food.getPrice()+"");
             }
         });
 
@@ -86,7 +90,11 @@ public class ShowDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(StaticArg.user!=null && StaticArg.user.getId()!=-1){
+                    if(StaticArg.isNew==true){
+                        StaticArg.listCart = new ArrayList<>();
+                    }
                     Cart cart = new Cart(0, StaticArg.user.getId(), food.getId(), Integer.parseInt(txtAmount.getText().toString().trim()),0);
+                    StaticArg.isNew = false;
                     StaticArg.listCart.add(cart);
                     Toast.makeText(ShowDetailActivity.this,"Đã thêm",Toast.LENGTH_SHORT).show();
                 }

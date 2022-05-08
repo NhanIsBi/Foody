@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 
 import java.sql.ResultSet;
 
+import hcmute.nhom2.foody.Static.StaticArg;
+
 public class Database extends SQLiteOpenHelper {
 
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -46,20 +48,6 @@ public class Database extends SQLiteOpenHelper {
         int a = (int) statement.executeInsert();
         //Log.d("AAAAAAAA: ",String.valueOf(a));
     }
-    public void Insert_Cart(int UserID,int FoodID,int Amount,int OderID){
-        SQLiteDatabase database=getWritableDatabase();
-        String sql="INSERT INTO Cart VALUES(null,?,?,?,?)";
-        SQLiteStatement statement=database.compileStatement(sql);
-        statement.clearBindings();
-
-        statement.bindDouble(1,UserID);
-        statement.bindDouble(2,FoodID);
-        statement.bindDouble(3,Amount);
-        statement.bindDouble(4,OderID);
-
-        int a = (int) statement.executeInsert();
-        //Log.d("AAAAAAAA: ",String.valueOf(a));
-    }
     public void Insert_Account(String tk,String mk,String name){
         SQLiteDatabase database=getWritableDatabase();
         String sql="INSERT INTO User VALUES(null,?,?,?)";
@@ -72,6 +60,34 @@ public class Database extends SQLiteOpenHelper {
 
         int a = (int) statement.executeInsert();
         //Log.d("AAAAAAAA: ",String.valueOf(a));
+    }
+    public int Insert_Order(int status,int total){
+        SQLiteDatabase database=getWritableDatabase();
+        String sql="INSERT INTO Orders VALUES(null,?,?,?,?)";
+        SQLiteStatement statement=database.compileStatement(sql);
+        statement.clearBindings();
+
+        statement.bindDouble(1, StaticArg.user.getId());
+        statement.bindDouble(2, StaticArg.currentRes.getId());
+        statement.bindDouble(3,status);
+        statement.bindDouble(4,total);
+
+        int a = (int) statement.executeInsert();
+        return a;
+    }
+    public void Insert_Cart(int FoodId,int Amount,int Orderid){
+        SQLiteDatabase database=getWritableDatabase();
+        String sql="INSERT INTO Cart VALUES(null,?,?,?,?)";
+        SQLiteStatement statement=database.compileStatement(sql);
+        statement.clearBindings();
+
+        statement.bindDouble(1, StaticArg.user.getId());
+        statement.bindDouble(2,FoodId);
+        statement.bindDouble(3,Amount);
+        statement.bindDouble(4,Orderid);
+
+        statement.executeInsert();
+
     }
 
     public Cursor GetData(String sql){

@@ -34,7 +34,15 @@ public class FoodActivity extends AppCompatActivity {
         }else {
             restaurant = (Restaurant) bundle.get("object_Restaurant");
         }
+        int prevRes = -1;
+        if(StaticArg.currentRes != null)
+            prevRes = StaticArg.currentRes.getId();
         StaticArg.currentRes = restaurant;
+        if(prevRes == StaticArg.currentRes.getId())
+            StaticArg.isNew = false;
+        else
+            StaticArg.isNew = true;
+        Log.d("AAAA: ", StaticArg.isNew+"    "+StaticArg.currentRes.getId()+"    "+prevRes);
         rcvRes=findViewById(R.id.rcvRes);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
         rcvRes.setLayoutManager(gridLayoutManager);

@@ -6,14 +6,38 @@ public class Order implements Serializable {
 
     private int ID;
     private int UserID;
-    private Cart[] listCart;
+    private int ResID;
     private  int status;
+    private  int priceTotal;
 
-    public Order(int ID,int userID, Cart[] listCart, int status) {
+    public Order(int ID, int userID, int resID, int status, int priceTotal) {
+        this.ID = ID;
+        UserID = userID;
+        ResID = resID;
+        this.status = status;
+        this.priceTotal = priceTotal;
+    }
+
+    public Order(int ID, int userID, int status) {
         ID=ID;
         UserID = userID;
-        this.listCart = listCart;
         this.status = status;
+    }
+
+    public int getResID() {
+        return ResID;
+    }
+
+    public void setResID(int resID) {
+        ResID = resID;
+    }
+
+    public int getPriceTotal() {
+        return priceTotal;
+    }
+
+    public void setPriceTotal(int priceTotal) {
+        this.priceTotal = priceTotal;
     }
 
     public int getID() {
@@ -30,14 +54,6 @@ public class Order implements Serializable {
 
     public void setUserID(int userID) {
         UserID = userID;
-    }
-
-    public Cart[] getListCart() {
-        return listCart;
-    }
-
-    public void setListCart(Cart[] listCart) {
-        this.listCart = listCart;
     }
 
     public int getStatus() {

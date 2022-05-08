@@ -18,7 +18,7 @@ import hcmute.nhom2.foody.Static.StaticArg;
 public class AccountFragment extends Fragment {
 
 
-    Button buttonGoLogin,btnLogOut;
+    Button buttonGoLogin,btnLogOut,btnHistory;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -35,13 +35,16 @@ public class AccountFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
         buttonGoLogin = view.findViewById(R.id.btnGoLogin);
         btnLogOut = view.findViewById(R.id.btnLogOut);
+        btnHistory= view.findViewById(R.id.btnHistory);
 
         if(StaticArg.user != null) {
             buttonGoLogin.setVisibility(View.INVISIBLE);
+            btnHistory.setVisibility(View.INVISIBLE);
             btnLogOut.setVisibility(View.VISIBLE);
         }
         else {
             buttonGoLogin.setVisibility(View.VISIBLE);
+            btnHistory.setVisibility(View.VISIBLE);
             btnLogOut.setVisibility(View.INVISIBLE);
         }
         buttonGoLogin.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +63,14 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
+
 }

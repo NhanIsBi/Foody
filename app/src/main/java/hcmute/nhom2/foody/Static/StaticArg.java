@@ -17,4 +17,5 @@ public class StaticArg {
     public static Order order;
     public static List<Cart> listCart = new ArrayList<>();
     public static Restaurant currentRes;
+    public static boolean isNew = false;
 }

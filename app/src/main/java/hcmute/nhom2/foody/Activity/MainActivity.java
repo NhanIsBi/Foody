@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS User(Id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(150), pass VARCHAR(150),name VARCHAR(150))");
         StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS Food(Id INTEGER PRIMARY KEY AUTOINCREMENT,ResId INTEGER, Ten VARCHAR(150), Price INTEGER, Hinh BLOB)");
         StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS Cart(Id INTEGER PRIMARY KEY AUTOINCREMENT, UserId INTEGER, FoodId INTEGER, Amount INTEGER, OrderId INTEGER)");
-        StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS Orders(Id INTEGER PRIMARY KEY AUTOINCREMENT,UserId INTEGER, Status INTEGER, TotalPrice INTEGER)");
+        StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS Orders(Id INTEGER PRIMARY KEY AUTOINCREMENT,UserId INTEGER, ResId INTEGER, Status INTEGER, TotalPrice INTEGER)");
 
         AnhXa();
 

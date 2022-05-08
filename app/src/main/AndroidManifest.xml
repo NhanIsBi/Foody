@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody">
         <activity
+            android:name=".Activity.HistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.AddFoodActivity"
             android:exported="false" />
         <activity

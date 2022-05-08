@@ -14,7 +14,7 @@ public class Cart implements Serializable {
         UserId = userId;
         FoodId = foodId;
         Amount = amount;
-        OrderId = OrderId;
+        this.OrderId = OrderId;
     }
 
     public int getId() {
