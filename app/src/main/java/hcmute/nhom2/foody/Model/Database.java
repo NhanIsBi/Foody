@@ -75,6 +75,17 @@ public class Database extends SQLiteOpenHelper {
         int a = (int) statement.executeInsert();
         return a;
     }
+    public void Update_Order(int status){
+        SQLiteDatabase database=getWritableDatabase();
+        String sql="UPDATE Orders SET Status=? WHERE UserId=?";
+        SQLiteStatement statement=database.compileStatement(sql);
+        statement.clearBindings();
+
+        statement.bindDouble(1, 1);
+        statement.bindDouble(2, StaticArg.user.getId());
+
+        statement.executeInsert();
+    }
     public void Insert_Cart(int FoodId,int Amount,int Orderid){
         SQLiteDatabase database=getWritableDatabase();
         String sql="INSERT INTO Cart VALUES(null,?,?,?,?)";

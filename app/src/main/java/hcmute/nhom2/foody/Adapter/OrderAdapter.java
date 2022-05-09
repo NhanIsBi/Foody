@@ -71,7 +71,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
                     cursorRes.getInt(0),
                     cursorRes.getString(1),
                     cursorRes.getBlob(2));
-
+        if(order.getStatus()==0 && StaticArg.user!=null){
+            holder.Status.setText("Đang giao");
+        }else{
+            holder.Status.setText("Đã giao");
+        }
         holder.nameRes.setText(restaurant.getName());
         holder.amountItem.setText(amountTotal+"");
         holder.totalPrice.setText(order.getPriceTotal()+"");
@@ -91,7 +95,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
     public class OrderHolder extends RecyclerView.ViewHolder{
         private ConstraintLayout layoutItemHis;
         private ImageView imgRes;
-        private TextView nameRes,amountItem,totalPrice;
+        private TextView nameRes,amountItem,totalPrice,Status;
         public OrderHolder(@NonNull View itemView) {
             super(itemView);
             layoutItemHis=itemView.findViewById(R.id.layout_item_history);
@@ -99,6 +103,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
             nameRes=itemView.findViewById(R.id.titleRes);
             amountItem=itemView.findViewById(R.id.amountItem);
             totalPrice=itemView.findViewById(R.id.totalPrice);
+            Status=itemView.findViewById(R.id.Status);
         }
     }
 }
