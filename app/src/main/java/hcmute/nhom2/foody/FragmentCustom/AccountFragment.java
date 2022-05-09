@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import hcmute.nhom2.foody.Activity.HistoryActivity;
 import hcmute.nhom2.foody.Activity.LoginActivity;
 import hcmute.nhom2.foody.Activity.MainActivity;
 import hcmute.nhom2.foody.R;
@@ -37,14 +38,14 @@ public class AccountFragment extends Fragment {
         btnLogOut = view.findViewById(R.id.btnLogOut);
         btnHistory= view.findViewById(R.id.btnHistory);
 
-        if(StaticArg.user != null) {
+        if(StaticArg.user != null ) {
             buttonGoLogin.setVisibility(View.INVISIBLE);
-            btnHistory.setVisibility(View.INVISIBLE);
+            btnHistory.setVisibility(View.VISIBLE);
             btnLogOut.setVisibility(View.VISIBLE);
         }
         else {
             buttonGoLogin.setVisibility(View.VISIBLE);
-            btnHistory.setVisibility(View.VISIBLE);
+            btnHistory.setVisibility(View.INVISIBLE);
             btnLogOut.setVisibility(View.INVISIBLE);
         }
         buttonGoLogin.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +67,7 @@ public class AccountFragment extends Fragment {
         btnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), HistoryActivity.class);
                 startActivity(intent);
             }
         });

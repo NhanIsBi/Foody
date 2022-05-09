@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Bạn phải điền đủ thông tin", Toast.LENGTH_LONG).show();
                 }else if(email.equals("admin") && pass.equals("admin")){
                     StaticArg.user = new User(-1, "admin");
-                    Toast.makeText(LoginActivity.this, "Đăng nhập thành căng bàng tài khoan admin", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Đăng nhập thành công bằng tài khoản admin", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }else if(checkLogin(email, pass)){

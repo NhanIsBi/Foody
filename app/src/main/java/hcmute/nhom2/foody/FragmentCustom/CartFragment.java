@@ -1,5 +1,6 @@
 package hcmute.nhom2.foody.FragmentCustom;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import hcmute.nhom2.foody.Activity.LoginActivity;
 import hcmute.nhom2.foody.Adapter.CartAdapter;
 import hcmute.nhom2.foody.Adapter.FoodAdapter;
 import hcmute.nhom2.foody.Adapter.RestaurantAdepter;
@@ -32,10 +34,6 @@ public class CartFragment extends Fragment {
     private RecyclerView rcvCart;
     private TextView amountTotal,priceTotal;
     private ConstraintLayout checkOut;
-    List<Cart> list;
-
-
-
 
     public CartFragment() {
         // Required empty public constructor
@@ -63,7 +61,8 @@ public class CartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 CheckOut();
-
+                Intent intent = new Intent(getActivity(), getActivity().getClass());
+                startActivity(intent);
             }
         });
 
@@ -91,20 +90,24 @@ public class CartFragment extends Fragment {
         }
         amountTotal.setText(amount+"");
         priceTotal.setText(price+2+"");
-        return price;
+        return price+2;
     }
     public void CheckOut(){
         if(StaticArg.user!=null && StaticArg.user.getId()!=-1){
-            int orderId = StaticArg.database.Insert_Order(0, updateCart());
-            for(int i = 0; i< StaticArg.listCart.size(); i++){
-                Cart tmp = StaticArg.listCart.get(i);
-                StaticArg.database.Insert_Cart(tmp.getFoodId(), tmp.getAmount(),orderId);
-            }
+            if(StaticArg.listCart.size()==0){
+                Toast.makeText(getActivity(), "Chưa có đơn hàng", Toast.LENGTH_SHORT).show();
+            }else {
+                int orderId = StaticArg.database.Insert_Order(0, updateCart());
+                for (int i = 0; i < StaticArg.listCart.size(); i++) {
+                    Cart tmp = StaticArg.listCart.get(i);
+                    StaticArg.database.Insert_Cart(tmp.getFoodId(), tmp.getAmount(), orderId);
+                }
 //            for(int i = 0; i< StaticArg.listCart.size();){
 //                StaticArg.listCart.remove(0);
 //            }
-            StaticArg.listCart = new ArrayList<>();
-            Toast.makeText(getActivity(), "Đã xuất đơn hàng", Toast.LENGTH_SHORT).show();
+                StaticArg.listCart = new ArrayList<>();
+                Toast.makeText(getActivity(), "Đã xuất đơn hàng", Toast.LENGTH_SHORT).show();
+            }
         }else {
             Toast.makeText(getActivity(), "Bạn chưa đăng nhập", Toast.LENGTH_SHORT).show();
         }
