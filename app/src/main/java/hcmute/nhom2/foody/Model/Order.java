@@ -8,9 +8,9 @@ public class Order implements Serializable {
     private int UserID;
     private int ResID;
     private  int status;
-    private  int priceTotal;
+    private  Double priceTotal;
 
-    public Order(int ID, int userID, int resID, int status, int priceTotal) {
+    public Order(int ID, int userID, int resID, int status, Double priceTotal) {
         this.ID = ID;
         UserID = userID;
         ResID = resID;
@@ -32,11 +32,11 @@ public class Order implements Serializable {
         ResID = resID;
     }
 
-    public int getPriceTotal() {
+    public Double getPriceTotal() {
         return priceTotal;
     }
 
-    public void setPriceTotal(int priceTotal) {
+    public void setPriceTotal(Double priceTotal) {
         this.priceTotal = priceTotal;
     }
 

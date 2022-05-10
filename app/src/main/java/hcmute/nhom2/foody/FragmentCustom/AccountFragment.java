@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 import hcmute.nhom2.foody.Activity.HistoryActivity;
 import hcmute.nhom2.foody.Activity.LoginActivity;
 import hcmute.nhom2.foody.Activity.MainActivity;
@@ -60,6 +62,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 StaticArg.user=null;
+                StaticArg.listCart = new ArrayList<>();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }

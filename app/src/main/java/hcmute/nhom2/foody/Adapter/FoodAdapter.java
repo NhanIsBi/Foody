@@ -48,7 +48,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodHolder>{
         holder.imgfood.setImageBitmap(bitmap);
 
         holder.namefood.setText(food.getName());
-        holder.pricefood.setText(String.valueOf(food.getPrice()));
+        holder.pricefood.setText("$"+food.getPrice());
 
         holder.layoutItemFood.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,11 +7,11 @@ public class Food implements Serializable {
     private int Id;
     private  int ResId;
     private String name;
-    private int price;
+    private Double price;
     private byte[] image;
 
 
-    public Food(int id, int resId, String name, int price, byte[] image) {
+    public Food(int id, int resId, String name, Double price, byte[] image) {
         Id = id;
         this.image = image;
         this.name = name;
@@ -54,9 +54,9 @@ public class Food implements Serializable {
         this.name = name;
     }
 
-    public int getPrice() { return price; }
+    public Double getPrice() { return price; }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

@@ -52,6 +52,16 @@ public class CartFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_cart, container, false);
 
+
+
+        rcvCart = view.findViewById(R.id.rcvCart);
+        GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(),1);
+        rcvCart.setLayoutManager(gridLayoutManager);
+
+        CartAdapter adapter=new CartAdapter(getActivity(), StaticArg.listCart);
+        rcvCart.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
         //anhxa
         amountTotal=view.findViewById(R.id.totalFeeTxt);
         priceTotal=view.findViewById(R.id.totalTxt);
@@ -65,31 +75,23 @@ public class CartFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-        rcvCart = view.findViewById(R.id.rcvCart);
-        GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(),1);
-        rcvCart.setLayoutManager(gridLayoutManager);
-
-        CartAdapter adapter=new CartAdapter(getActivity(), StaticArg.listCart);
-        rcvCart.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
         return view;
     }
 
-    public int updateCart(){
-        int amount = 0,price=0;
+    public Double updateCart(){
+        int amount = 0;
+        double price=0;
         for(int i = 0;i<StaticArg.listCart.size();i++){
             Cart tmp = StaticArg.listCart.get(i);
             Cursor cursor = StaticArg.database.GetData("SELECT * FROM Food WHERE Id='"+tmp.getFoodId()+"'");
             cursor.moveToNext();
-            int priceTmp = cursor.getInt(3);
+            Double priceTmp = cursor.getDouble(3);
 
             amount += tmp.getAmount();
-            price += (priceTmp*tmp.getAmount());
+            price += (priceTmp*((double)tmp.getAmount()));
         }
         amountTotal.setText(amount+"");
-        priceTotal.setText(price+2+"");
+        priceTotal.setText("$"+(price+2));
         return price+2;
     }
     public void CheckOut(){

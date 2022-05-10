@@ -34,7 +34,7 @@ public class Database extends SQLiteOpenHelper {
         int a = (int) statement.executeInsert();
         //Log.d("AAAAAAAA: ",String.valueOf(a));
     }
-    public void Insert_Food(byte[] hinh,String ten,int price,int ResId){
+    public void Insert_Food(byte[] hinh,String ten,Double price,int ResId){
         SQLiteDatabase database=getWritableDatabase();
         String sql="INSERT INTO Food VALUES(null,?,?,?,?)";
         SQLiteStatement statement=database.compileStatement(sql);
@@ -61,7 +61,7 @@ public class Database extends SQLiteOpenHelper {
         int a = (int) statement.executeInsert();
         //Log.d("AAAAAAAA: ",String.valueOf(a));
     }
-    public int Insert_Order(int status,int total){
+    public int Insert_Order(int status,Double total){
         SQLiteDatabase database=getWritableDatabase();
         String sql="INSERT INTO Orders VALUES(null,?,?,?,?)";
         SQLiteStatement statement=database.compileStatement(sql);

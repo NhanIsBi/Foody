@@ -76,7 +76,7 @@ public class FoodActivity extends AppCompatActivity {
                     cursor.getInt(0),
                     cursor.getInt(1),
                     cursor.getString(2),
-                    cursor.getInt(3),
+                    cursor.getDouble(3),
                     cursor.getBlob(4)
             ));
         }

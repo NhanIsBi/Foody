@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         StaticArg.database=new Database(MainActivity.this,"QuanLyQuanAn.sqlite",null,1);
 
+//        StaticArg.database.QueryData("DELETE From Food Where Id='1'");
 //        StaticArg.database.QueryData("DROP TABLE  QuanAn");
 //        StaticArg.database.QueryData("DROP TABLE  Food");
 //        StaticArg.database.QueryData("DROP TABLE  Cart");
@@ -31,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS QuanAn(Id INTEGER PRIMARY KEY AUTOINCREMENT, Ten VARCHAR(150), Hinh BLOB)");
         StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS User(Id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(150), pass VARCHAR(150),name VARCHAR(150))");
-        StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS Food(Id INTEGER PRIMARY KEY AUTOINCREMENT,ResId INTEGER, Ten VARCHAR(150), Price INTEGER, Hinh BLOB)");
+        StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS Food(Id INTEGER PRIMARY KEY AUTOINCREMENT,ResId INTEGER, Ten VARCHAR(150), Price REAL, Hinh BLOB)");
         StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS Cart(Id INTEGER PRIMARY KEY AUTOINCREMENT, UserId INTEGER, FoodId INTEGER, Amount INTEGER, OrderId INTEGER)");
-        StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS Orders(Id INTEGER PRIMARY KEY AUTOINCREMENT,UserId INTEGER, ResId INTEGER, Status INTEGER, TotalPrice INTEGER)");
+        StaticArg.database.QueryData("CREATE TABLE IF NOT EXISTS Orders(Id INTEGER PRIMARY KEY AUTOINCREMENT,UserId INTEGER, ResId INTEGER, Status INTEGER, TotalPrice REAL)");
 
         AnhXa();
 

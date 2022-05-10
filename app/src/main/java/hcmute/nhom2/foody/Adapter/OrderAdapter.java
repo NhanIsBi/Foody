@@ -78,7 +78,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
         }
         holder.nameRes.setText(restaurant.getName());
         holder.amountItem.setText(amountTotal+"");
-        holder.totalPrice.setText(order.getPriceTotal()+"");
+        holder.totalPrice.setText("$"+order.getPriceTotal());
 
         byte[] hinhanh=restaurant.getImage();
         Bitmap bitmap= BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);

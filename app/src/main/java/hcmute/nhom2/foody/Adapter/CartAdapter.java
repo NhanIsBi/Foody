@@ -52,12 +52,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
                 cursor.getInt(0),
                 cursor.getInt(1),
                 cursor.getString(2),
-                cursor.getInt(3),
+                cursor.getDouble(3),
                 cursor.getBlob(4));
         holder.name.setText(tmp.getName());
-        holder.price.setText(tmp.getPrice()+"");
+        holder.price.setText("$"+tmp.getPrice());
         holder.amount.setText(cart.getAmount()+"");
-        holder.total.setText(cart.getAmount()*tmp.getPrice()+"");
+        holder.total.setText("$"+cart.getAmount()*tmp.getPrice());
 
         byte[] hinhanh=tmp.getImage();
         Bitmap bitmap= BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
@@ -69,7 +69,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
                 int num = Integer.parseInt(holder.amount.getText().toString());
                 num++;
                 holder.amount.setText(num+"");
-                holder.total.setText("$"+num*tmp.getPrice()+"");
+                holder.total.setText("$"+((double)num)*tmp.getPrice()+"");
                 cart.setAmount(num);
             }
         });
@@ -82,7 +82,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
                 if(num<1)
                     num=1;
                 holder.amount.setText(num+"");
-                holder.total.setText("$"+num*tmp.getPrice()+"");
+                holder.total.setText("$"+((double)num)*tmp.getPrice()+"");
                 cart.setAmount(num);
             }
         });

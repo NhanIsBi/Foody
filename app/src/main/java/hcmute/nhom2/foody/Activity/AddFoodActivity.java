@@ -80,21 +80,29 @@ public class AddFoodActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //chuyển imageview -> byte[]
-                BitmapDrawable bitmapDrawable= (BitmapDrawable) imgHinh.getDrawable();
-                Bitmap bitmap= bitmapDrawable.getBitmap();
-                ByteArrayOutputStream byteArray=new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArray);
-                byte[] hinhanh=byteArray.toByteArray();
+                String nameFood = edtNameFood.getText().toString().trim();
+                String price = editPrice.getText().toString().trim();
+                String IdRes = edtIDRES.getText().toString().trim();
+                if(nameFood.equals("")||price.equals("")||IdRes.equals("")){
+                    Toast.makeText(AddFoodActivity.this,"Bạn phải điền đủ thông tin",Toast.LENGTH_SHORT).show();
+                }else{
+                    //chuyển imageview -> byte[]
+                    BitmapDrawable bitmapDrawable= (BitmapDrawable) imgHinh.getDrawable();
+                    Bitmap bitmap= bitmapDrawable.getBitmap();
+                    ByteArrayOutputStream byteArray=new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArray);
+                    byte[] hinhanh=byteArray.toByteArray();
 
-                StaticArg.database.Insert_Food(
-                        hinhanh,
-                        edtNameFood.getText().toString().trim(),
-                        Integer.parseInt(editPrice.getText().toString().trim()),
-                        Integer.parseInt(edtIDRES.getText().toString().trim())
-                );
-                Toast.makeText(AddFoodActivity.this,"Đã thêm",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AddFoodActivity.this,MainActivity.class));
+                    StaticArg.database.Insert_Food(
+                            hinhanh,
+                            edtNameFood.getText().toString().trim(),
+                            Double.parseDouble(editPrice.getText().toString().trim()),
+                            Integer.parseInt(edtIDRES.getText().toString().trim())
+                    );
+                    Toast.makeText(AddFoodActivity.this,"Đã thêm",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AddFoodActivity.this,MainActivity.class));
+                }
+
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {

@@ -56,8 +56,6 @@ public class AddRestaurantActivity extends AppCompatActivity {
         imgCam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                startActivityForResult(intent,REQUEST_CODE_CAMERA);
                 ActivityCompat.requestPermissions(
                         AddRestaurantActivity.this,
                         new String[]{Manifest.permission.CAMERA},
@@ -68,9 +66,6 @@ public class AddRestaurantActivity extends AppCompatActivity {
         imgFodel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent=new Intent(Intent.ACTION_PICK);
-//                intent.setType("image/*");
-//                startActivityForResult(intent,REQUEST_CODE_FOLDER);
                 ActivityCompat.requestPermissions(
                         AddRestaurantActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
@@ -82,19 +77,24 @@ public class AddRestaurantActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //chuyển imageview -> byte[]
-                BitmapDrawable bitmapDrawable= (BitmapDrawable) imgHinh.getDrawable();
-                Bitmap bitmap= bitmapDrawable.getBitmap();
-                ByteArrayOutputStream byteArray=new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArray);
-                byte[] hinhanh=byteArray.toByteArray();
+                String name = edtName.getText().toString().trim();
+                if(edtName.equals("")){
+                    Toast.makeText(AddRestaurantActivity.this,"Bạn phải điền đủ thông tin",Toast.LENGTH_SHORT).show();
+                }else {
+                    //chuyển imageview -> byte[]
+                    BitmapDrawable bitmapDrawable = (BitmapDrawable) imgHinh.getDrawable();
+                    Bitmap bitmap = bitmapDrawable.getBitmap();
+                    ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArray);
+                    byte[] hinhanh = byteArray.toByteArray();
 
-                StaticArg.database.Insert_Res(
-                        edtName.getText().toString().trim(),
-                        hinhanh
-                );
-                Toast.makeText(AddRestaurantActivity.this,"Đã thêm",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AddRestaurantActivity.this,MainActivity.class));
+                    StaticArg.database.Insert_Res(
+                            edtName.getText().toString().trim(),
+                            hinhanh
+                    );
+                    Toast.makeText(AddRestaurantActivity.this, "Đã thêm", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AddRestaurantActivity.this, MainActivity.class));
+                }
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
