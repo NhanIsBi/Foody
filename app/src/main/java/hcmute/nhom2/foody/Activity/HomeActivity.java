@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +22,7 @@ import hcmute.nhom2.foody.Static.StaticArg;
 
 public class HomeActivity extends AppCompatActivity {
     private RecyclerView rcvRes;
+    Button btnBack;
     List<Restaurant> list;
 
     @Override
@@ -25,6 +30,14 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        btnBack=findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         rcvRes=findViewById(R.id.rcvRes);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
         rcvRes.setLayoutManager(gridLayoutManager);

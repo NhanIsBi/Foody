@@ -20,7 +20,7 @@ import hcmute.nhom2.foody.R;
 import hcmute.nhom2.foody.Static.StaticArg;
 
 public class RegisterActivity extends AppCompatActivity {
-    Button btnRegister;
+    Button btnRegister,btnBack;
     EditText editTextTK, editTextPass, editTextName;
     List<User> list;
 
@@ -33,7 +33,15 @@ public class RegisterActivity extends AppCompatActivity {
         editTextTK = findViewById(R.id.editTextTK);
         editTextPass = findViewById(R.id.editTextMK);
         editTextName = findViewById(R.id.editTextName);
+        btnBack=findViewById(R.id.btnBack1);
 
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
                     );
                     Toast.makeText(RegisterActivity.this,"Đăng ký thành công", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    //intent.putExtra("user", tk);
                     startActivity(intent);
                 }else {
                     Toast.makeText(RegisterActivity.this,"Tài khoản đã tồn tại", Toast.LENGTH_LONG).show();

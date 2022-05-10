@@ -31,7 +31,7 @@ import hcmute.nhom2.foody.R;
 import hcmute.nhom2.foody.Static.StaticArg;
 
 public class AddRestaurantActivity extends AppCompatActivity {
-    Button btnAdd,btnCancel;
+    Button btnAdd,btnCancel,btnBack;
     EditText edtName;
     ImageButton imgCam,imgFodel;
     ImageView imgHinh;
@@ -45,6 +45,14 @@ public class AddRestaurantActivity extends AppCompatActivity {
 
         Anhxa();
 
+        btnBack=findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddRestaurantActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         imgCam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -29,7 +29,7 @@ import hcmute.nhom2.foody.R;
 import hcmute.nhom2.foody.Static.StaticArg;
 
 public class AddFoodActivity extends AppCompatActivity {
-    Button btnAdd,btnCancel;
+    Button btnAdd,btnCancel,btnBack;
     EditText edtNameFood,edtIDRES,editPrice;
     ImageButton imgCam,imgFodel;
     ImageView imgHinh;
@@ -43,6 +43,14 @@ public class AddFoodActivity extends AppCompatActivity {
 
         Anhxa();
 
+        btnBack=findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddFoodActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         imgCam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

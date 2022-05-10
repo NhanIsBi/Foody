@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,7 @@ import hcmute.nhom2.foody.R;
 import hcmute.nhom2.foody.Static.StaticArg;
 
 public class HistoryActivity extends AppCompatActivity {
+    Button btnBack;
     private RecyclerView rcvHisOrder;
     List<Order> list;
 
@@ -27,6 +31,14 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+        btnBack=findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HistoryActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         rcvHisOrder=findViewById(R.id.rcvHisOrder);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,1);
         rcvHisOrder.setLayoutManager(gridLayoutManager);

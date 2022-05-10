@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         StaticArg.database=new Database(MainActivity.this,"QuanLyQuanAn.sqlite",null,1);
 
-//        StaticArg.database.QueryData("DROP TABLE  User");
+//        StaticArg.database.QueryData("DROP TABLE  QuanAn");
 //        StaticArg.database.QueryData("DROP TABLE  Food");
 //        StaticArg.database.QueryData("DROP TABLE  Cart");
 //        StaticArg.database.QueryData("DROP TABLE  Orders");

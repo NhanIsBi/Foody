@@ -1,9 +1,12 @@
 package hcmute.nhom2.foody.Activity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -23,11 +26,13 @@ public class FoodActivity extends AppCompatActivity {
     private RecyclerView rcvRes;
     List<Food> list;
     Restaurant restaurant;
+    Button btn1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_food);
 
+        btn1=(Button) findViewById(R.id.btnBackListFood);
         Bundle bundle=getIntent().getExtras();
         if(bundle==null){
             restaurant = StaticArg.currentRes;
@@ -42,14 +47,25 @@ public class FoodActivity extends AppCompatActivity {
             StaticArg.isNew = false;
         else
             StaticArg.isNew = true;
-        Log.d("AAAA: ", StaticArg.isNew+"    "+StaticArg.currentRes.getId()+"    "+prevRes);
-        rcvRes=findViewById(R.id.rcvRes);
+
+
+
+        rcvRes=findViewById(R.id.rcvFood);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
         rcvRes.setLayoutManager(gridLayoutManager);
 
         FoodAdapter adepter=new FoodAdapter(this,getListFood());
         rcvRes.setAdapter(adepter);
         adepter.notifyDataSetChanged();
+
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(FoodActivity.this,HomeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private List<Food> getListFood() {

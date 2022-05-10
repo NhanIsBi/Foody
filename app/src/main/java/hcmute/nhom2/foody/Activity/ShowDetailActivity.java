@@ -51,6 +51,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         total.setText("$"+food.getPrice());
         txtname.setText(food.getName());
         txtprice.setText(String.valueOf(food.getPrice()));
+
         byte[] hinhanh=food.getImage();
         Bitmap bitmap= BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
         imgHinh.setImageBitmap(bitmap);
