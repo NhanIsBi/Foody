@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "159797407808",
+    "firebase_url": "https://esp8266-a738c-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "esp8266-a738c",
+    "storage_bucket": "esp8266-a738c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159797407808:android:2b817a71fdbaa048e46fa5",
+        "android_client_info": {
+          "package_name": "com.esp.wifi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159797407808-i8gljle4hkmq28n104stod0stjj2krap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrczPJGq0Yp5KW_2emCoqAMfkm1r-HdTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159797407808-i8gljle4hkmq28n104stod0stjj2krap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
